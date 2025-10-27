@@ -1,0 +1,378 @@
+/* === Global Reset === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f5f7fb;
+  --text: #222;
+  --primary: #007bff;
+  --border: #ddd;
+  --radius: 10px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* === Navbar === */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  box-shadow: var(--shadow);
+  padding: 15px 40px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar h2 {
+  font-size: 1.5rem;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  
+}
+
+.navbar a,
+.navbar button {
+  text-decoration: none;
+  color: var(--text);
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover,
+.navbar button:hover {
+  color: var(--primary);
+}
+
+/* === Page Container === */
+.page {
+  width: 100%;
+  min-height: calc(100vh - 70px);
+  padding: 40px 60px;
+}
+
+/* === Auth === */
+.auth-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 100px auto;
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 40px 30px;
+  text-align: center;
+}
+
+.auth-container h2 {
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+  color: var(--primary);
+}
+
+.auth-container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-container input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.auth-container input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+.auth-container button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px 0;
+  border: none;
+  border-radius: var(--radius);
+  background: var(--primary);
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.auth-container button:hover {
+  background: #005fd1;
+}
+
+/* === Upload Form === */
+.upload-container {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 30px 40px;
+  margin: 40px auto;
+  width: 500px;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.upload-container h3 {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-bottom: 25px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.upload-container form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Title Input */
+.upload-container input[type="text"] {
+  flex: 1 1 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.upload-container input[type="text"]:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+}
+
+/* File Input */
+.upload-container input[type="file"] {
+  flex: 1 1 100%;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #fafafa;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.upload-container input[type="file"]::-webkit-file-upload-button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  padding: 8px 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.upload-container input[type="file"]::-webkit-file-upload-button:hover {
+  background: #005fd1;
+}
+
+/* Submit Button */
+.upload-container button {
+  flex: 1 1 100%;
+  padding: 12px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.upload-container button:hover {
+  background: #005fd1;
+  transform: translateY(-2px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .upload-container {
+    padding: 25px 20px;
+  }
+
+  .upload-container form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .upload-container input,
+  .upload-container button {
+    width: 100%;
+  }
+}
+
+
+/* === Photo Grid === */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.photo-card {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  text-align: center;
+}
+
+.photo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.photo-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--radius);
+}
+
+/* ❤️ Like Button - always visible */
+.like-btn {
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #777;
+  transition: all 0.2s ease;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.like-btn:hover {
+  transform: scale(1.15);
+  background: #fff;
+}
+
+.like-btn.liked {
+  color: #ff3d71;
+}
+
+/* Like Count */
+.like-count {
+  font-size: 14px;
+  color: #666;
+  margin-top: 6px;
+  display: block;
+}
+
+/* Delete Button */
+.delete-btn {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  margin: 10px auto 15px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.delete-btn:hover {
+  background: #e60000;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .page {
+    padding: 25px;
+  }
+
+  .upload-container form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .upload-container input,
+  .upload-container button {
+    width: 100%;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 25px;
+  }
+
+  .photo-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-container {
+    width: 90%;
+    margin-top: 60px;
+  }
+
+  .upload-container h3 {
+    text-align: center;
+  }
+
+  .navbar-links {
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0 5px;
+    padding-right: 10px;
+  }
+}
+.upload-heading h4{
+ text-align: center;
+ padding-top: 20px;
+}
