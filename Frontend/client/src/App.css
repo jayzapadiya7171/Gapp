@@ -23,50 +23,6 @@ html, body {
   overflow-x: hidden;
 }
 
-/* === Navbar === */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: white;
-  box-shadow: var(--shadow);
-  padding: 15px 40px;
-  width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 10;
-}
-
-.navbar h2 {
-  font-size: 1.5rem;
-  color: var(--primary);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.navbar-links {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  
-}
-
-.navbar a,
-.navbar button {
-  text-decoration: none;
-  color: var(--text);
-  background: none;
-  border: none;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.navbar a:hover,
-.navbar button:hover {
-  color: var(--primary);
-}
 
 /* === Page Container === */
 .page {
@@ -242,90 +198,80 @@ html, body {
 }
 
 
-/* === Photo Grid === */
+/* === Photo Grid Layout === */
 .photo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 25px;
-  width: 100%;
-  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
 }
 
+/* === Photo Card === */
 .photo-card {
-  background: white;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  width: 280px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
   text-align: center;
+  transition: all 0.2s ease;
 }
 
 .photo-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
-.photo-card img {
+.photo-image {
   width: 100%;
-  height: 250px;
+  height: 200px;
   object-fit: cover;
-  display: block;
-  border-radius: var(--radius);
+  border-bottom: 1px solid #eee;
 }
 
-/* ❤️ Like Button - always visible */
-.like-btn {
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  font-size: 20px;
-  width: 40px;
-  height: 40px;
+.photo-owner {
+  font-size: 14px;
+  color: #666;
+}
+
+/* === Like & Delete Buttons === */
+.photo-actions {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+}
+
+.like-btn {
+  border: none;
+  background: none;
+  font-size: 20px;
   cursor: pointer;
-  color: #777;
-  transition: all 0.2s ease;
-  position: absolute;
-  bottom: 15px;
-  right: 15px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.1s ease;
 }
 
 .like-btn:hover {
-  transform: scale(1.15);
-  background: #fff;
+  transform: scale(1.2);
 }
 
-.like-btn.liked {
-  color: #ff3d71;
+.liked {
+  color: #e0245e;
 }
 
-/* Like Count */
-.like-count {
-  font-size: 14px;
-  color: #666;
-  margin-top: 6px;
-  display: block;
-}
-
-/* Delete Button */
 .delete-btn {
-  background: #ff4d4d;
+  background: #ff4d4f;
   color: white;
   border: none;
-  border-radius: var(--radius);
-  padding: 8px 12px;
-  margin: 10px auto 15px;
-  font-size: 0.9rem;
+  border-radius: 8px;
+  padding: 4px 10px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  font-size: 14px;
 }
 
 .delete-btn:hover {
-  background: #e60000;
+  background: #e04344;
 }
 
 /* Responsive */
@@ -372,7 +318,157 @@ html, body {
     padding-right: 10px;
   }
 }
-.upload-heading h4{
+.upload-heading h2{
  text-align: center;
  padding-top: 20px;
+}
+/* === Comment Section === */
+.comment-section {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  background: #fafafa;
+  border-radius: 0 0 16px 16px;
+}
+
+.view-comments-btn {
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 14px;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+
+.comment-item {
+  text-align: left;
+  font-size: 13px;
+  margin-bottom: 4px;
+  color: #333;
+}
+
+.comment-item strong {
+  color: #007bff;
+}
+
+.add-comment {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.add-comment input {
+  flex: 1;
+  border: 1px solid #ddd;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.add-comment button {
+  background: #007bff;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.add-comment button:hover {
+  background: #005fcc;
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  .photo-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .photo-card {
+    width: 90%;
+  }
+}
+/* === Profile Page Styling === */
+
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background-color: #f5f7fb;
+}
+
+.profile-card {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  width: 360px;
+  transition: all 0.3s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-3px);
+}
+
+.profile-card h2 {
+  color: #007bff;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.profile-avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #007bff;
+  margin-bottom: 1rem;
+  background: #eaeaea;
+  display: inline-block;
+}
+
+/* File input and buttons */
+.profile-card input[type="file"] {
+  margin: 0.6rem 0;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.profile-card button {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.profile-card button:hover {
+  background-color: #0056b3;
+}
+
+.profile-card textarea {
+  width: 100%;
+  height: 70px;
+  margin-top: 12px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  resize: none;
+  outline: none;
+  transition: 0.2s;
+}
+
+.profile-card textarea:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
 }

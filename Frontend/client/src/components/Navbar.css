@@ -1,0 +1,105 @@
+/* === Navbar Wrapper === */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffffcc;
+  backdrop-filter: blur(10px);
+  padding: 14px 60px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+/* === Logo / Brand === */
+.navbar h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #007bff;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  cursor: pointer;
+}
+
+/* === Link Container === */
+.navbar div {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+/* === Navbar Links === */
+.navbar a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #222;
+  font-size: 1rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: #007bff;
+  transition: width 0.3s ease;
+}
+
+.navbar a:hover {
+  color: #007bff;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+/* === Logout / Auth Buttons === */
+.navbar button {
+  background: linear-gradient(90deg, #007bff, #005fcc);
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.navbar button:hover {
+  background: linear-gradient(90deg, #005fcc, #004cb2);
+  transform: translateY(-2px);
+}
+
+/* === Responsive Design === */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 12px 20px;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .navbar div {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .navbar a {
+    font-size: 0.95rem;
+  }
+
+  .navbar button {
+    padding: 6px 14px;
+    font-size: 0.9rem;
+  }
+}

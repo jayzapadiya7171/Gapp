@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import API from "../api";
+import API from "../api/api.js";
 
 const UploadForm = ({ fetchPhotos, user }) => {
   const [file, setFile] = useState(null);

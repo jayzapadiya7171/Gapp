@@ -1,5 +1,6 @@
+// src/pages/Register.jsx
 import React, { useState } from "react";
-import API from "../api";
+import API from "../api/api.js"; // ✅ corrected path
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
@@ -9,12 +10,9 @@ const Register = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      // ✅ Correct endpoint
       const { data } = await API.post("/users/register", form);
 
-      // ✅ Store token & user info
       localStorage.setItem("user", JSON.stringify(data));
-
       alert("Account created successfully!");
       navigate("/");
     } catch (error) {

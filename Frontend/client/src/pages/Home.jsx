@@ -36,7 +36,8 @@ const Home = () => {
       {user ? (
         <UploadForm user={user} fetchPhotos={fetchPhotos} />
       ) : (
-        <h4>Please log-in to upload photos.</h4>
+        <h2>Please log-in to upload photos.</h2>
+        
       )}
 
       <PhotoList photos={photos} fetchPhotos={fetchPhotos} user={user} />
